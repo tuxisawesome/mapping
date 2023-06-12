@@ -2,7 +2,7 @@
 <html data-ng-app="routing">
 <head>
     <meta charset="utf-8" />
-    <title>Freeform Routing</title>
+    <title>Leaflet Routing Machine - Vahalla </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -58,12 +58,19 @@
 
         <div class="col-md-2 info">
           <div id="instructions">
+            <h1>Freeform Routing</h1>
             <p><h6><b>Point & click on the map to select a start & end point.</b><br>
             <b>Defaults to auto.</b><br>
             Change route to use other methods of travel (auto, bicycle, pedestrian, or transit) from one of the mode buttons below.</h6></p>
             <h5><b><a target="_blank" href='https://github.com/valhalla/valhalla/blob/master/docs/api/turn-by-turn/api-reference.md'>Turn-by-Turn API reference</a></b></h5>
             <hr>
             <h4>Point & Click Route Testing</h4>
+            <div id="invisable">
+             <br>Token:</br>
+                 <textarea id="token" rows="1" cols="30" maxlength="100" wrap="hard" onclick="selectEnv()" placeholder = "Enter your token."></textarea>
+             <br>Map Token:</br>
+                  <textarea id="maptoken" rows="1" cols="30" maxlength="100" wrap="hard" placeholder = "Enter token."></textarea></br>
+                </div>
                     <span style="color:black" class="descriptions">Select a locale:</span>
 			<select id = "locale_dropdown" onchange="selectLocale()">
 				<option id=en-US selected="selected" value="en-US">en-US</option>
@@ -87,6 +94,10 @@
 				</form>
 		    </div>
                     <div id="driveoptions" name="driveoptions" style="display:none">
+			  <form id="auto" name="auto" ><span style="color:black">
+				<h5><b>Auto Options:</b></h5><p>
+				<i>Coming soon!</i>
+			  </form>
 		      <hr>
 		    </div>
 		    <div id="bikeoptions" name="bikeoptions" style="display:none">
@@ -220,6 +231,8 @@
 
     <!-- Load geocoding plugin after Leaflet -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.4.1/leaflet-geocoder-mapzen.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
 
 	<script>
       var defaultMode = 'auto';
