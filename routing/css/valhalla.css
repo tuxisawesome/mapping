@@ -12,12 +12,14 @@ img {
 }
 
 #map {
-  height:100vh;
+  height:100%;
   width: 100%;
 /*  position: absolute;
   background: #fff;
   margin:0;*/
 }
+
+
 
 hr {
   margin-top: 20px;
